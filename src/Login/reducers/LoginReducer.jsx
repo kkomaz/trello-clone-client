@@ -13,8 +13,7 @@ function setAxiosHeader(jwtToken) {
 }
 
 export const defaultState = Map({
-  // session: !!sessionStorage.jwt,
-  session: false,
+  session: !!sessionStorage.jwt,
   services: List([]),
 });
 
