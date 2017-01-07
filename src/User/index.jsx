@@ -1,22 +1,28 @@
 import React, { PropTypes, Component } from 'react';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form/immutable';
 import validate from 'common/Forms/utils/validations.jsx';
-import loginUser from 'Login/actions/loginUser.jsx';
-import fetchServices from 'Login/actions/fetchServices.jsx';
+import loginUser from 'User/actions/loginUser.jsx';
+import fetchServices from 'User/actions/fetchServices.jsx';
 import inputField from 'common/Forms/inputField';
+import mergeProps from 'common/Forms/utils/mergeProps.js';
 
 class LoginPage extends Component {
   constructor(props) {
     super(props);
 
     this.onSubmit = this.onSubmit.bind(this);
+    this.navigateToSignUp = this.navigateToSignUp.bind(this);
     this.fetchServices = this.fetchServices.bind(this);
   }
 
   fetchServices() {
     this.props.fetchServices();
+  }
+
+  navigateToSignUp() {
+    browserHistory.push('/sign-up');
   }
 
   onSubmit(formInputs) {
@@ -39,6 +45,9 @@ class LoginPage extends Component {
             <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
           </div>
         </form>
+
+        <Link className="registration" onClick={this.navigateToSignUp}>New users click here!</Link>
+
         <button type="button" onClick={this.fetchServices}>Fetch Services</button>
       </div>
     );
@@ -55,16 +64,9 @@ LoginPage.propTypes = {
 };
 
 const LoginPageForm = reduxForm({
-  form: 'LoginPage',
+  form: 'LoginForm',
   validate,
 })(LoginPage);
-
-/**
- * Pass mergeProps parameter to override any changes needed in the test suite
- */
-const mergeProps = (stateProps, dispatchProps, ownProps) =>{
-  return Object.assign({}, stateProps, dispatchProps, ownProps);
-};
 
 export default connect(null, {
   loginUser,

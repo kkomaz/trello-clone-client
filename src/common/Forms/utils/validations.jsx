@@ -21,5 +21,8 @@ export default function validate(values) {
   if (!values.get('password')) {
     errors.password = 'Required';
   }
+  if (!values.get('passwordConfirmation')) {
+    errors.passwordConfirmation = 'Required';
+  }
   return errors;
 }

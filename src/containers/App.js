@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { browserHistory, Link } from 'react-router';
 import FlashMessages from './common/FlashMessages';
 import logo from '../logo.svg';
-import logoutUser from 'Login/actions/logoutUser.jsx';
+import logoutUser from 'User/actions/logoutUser.jsx';
 
 import '../assets/css/App.css';
 
