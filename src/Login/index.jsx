@@ -5,23 +5,7 @@ import { Field, reduxForm } from 'redux-form/immutable';
 import validate from 'common/Forms/utils/validations.jsx';
 import loginUser from 'Login/actions/loginUser.jsx';
 import fetchServices from 'Login/actions/fetchServices.jsx';
-
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type}/>
-      {touched && (error && <span>{error}</span>)}
-    </div>
-  </div>
-);
-
-renderField.propTypes = {
-  input: PropTypes.object.isRequired,
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  meta: PropTypes.object.isRequired,
-};
+import inputField from 'common/Forms/inputField';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -48,8 +32,8 @@ class LoginPage extends Component {
     return (
       <div className="login">
         <form className="login__form" onSubmit={handleSubmit(this.onSubmit)}>
-          <Field name="email" type="email" component={renderField} label="Email"/>
-          <Field name="password" type="password" component={renderField} label="password"/>
+          <Field name="email" type="email" component={inputField} label="Email"/>
+          <Field name="password" type="password" component={inputField} label="password"/>
           <div>
             <button type="submit" disabled={submitting} onClick={handleSubmit(this.onSubmit)}>Submit</button>
             <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
