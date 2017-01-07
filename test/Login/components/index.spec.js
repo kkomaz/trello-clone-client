@@ -6,7 +6,7 @@ describe('LoginPage', () => {
     let spy;
 
     beforeEach(() => {
-      spy = jest.fn();
+      spy = jest.genMockFunction().mockReturnValueOnce(new Promise((resolve) => resolve()));
       component = renderComponent(LoginPageForm, { loginUser: spy });
     });
 
@@ -26,7 +26,6 @@ describe('LoginPage', () => {
       email.simulate('change', { target: { value: 'f@f.com' }});
       password.simulate('change', { target: { value: 'password' }});
       form.simulate('submit');
-      console.log(spy.mock);
-      expect(spy.calledOnce).to.equal(true);
+      expect(spy.mock.calls.length).toBe(1);
     });
 });
