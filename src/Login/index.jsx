@@ -75,7 +75,14 @@ const LoginPageForm = reduxForm({
   validate,
 })(LoginPage);
 
+/**
+ * Pass mergeProps parameter to override any changes needed in the test suite
+ */
+const mergeProps = (stateProps, dispatchProps, ownProps) =>{
+  return Object.assign({}, stateProps, dispatchProps, ownProps);
+};
+
 export default connect(null, {
   loginUser,
   fetchServices,
-})(LoginPageForm);
+}, mergeProps)(LoginPageForm);
