@@ -17,7 +17,7 @@ export const defaultState = Map({
   services: List([]),
 });
 
-export default function sessionReducer(state = defaultState, action) {
+export default function authReducer(state = defaultState, action) {
   switch(action.type) {
     case LOGIN_SUCCESS:
       setAxiosHeader(sessionStorage.jwt);

@@ -3,9 +3,9 @@ import { IndexRoute, Route } from 'react-router';
 import App from './containers/App';
 import About from './components/About';
 import ListPage from './containers/ListPage';
-import Login from './User/containers/Login';
-import Signup from './User/containers/Signup.jsx';
-import { setAxiosHeaders } from './User/utils/session.js';
+import Login from './containers/Auth/Login';
+import Signup from './containers/Auth/Signup';
+import { setAxiosHeaders } from './containers/Auth/utils/session.js';
 
 export default function configAuthenticatedRoutes() {
   const enforceSessionandHeaders = (nextState, replace, callback) => {

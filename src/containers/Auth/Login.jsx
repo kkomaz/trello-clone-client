@@ -3,8 +3,8 @@ import { browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form/immutable';
 import validate from 'common/Forms/utils/validations.jsx';
-import loginUser from 'User/actions/loginUser.jsx';
-import fetchServices from 'User/actions/fetchServices.jsx';
+import loginUser from 'containers/Auth/actions/loginUser.jsx';
+import fetchServices from 'containers/Auth/actions/fetchServices.jsx';
 import inputField from 'common/Forms/inputField';
 import mergeProps from 'common/Forms/utils/mergeProps.js';
 

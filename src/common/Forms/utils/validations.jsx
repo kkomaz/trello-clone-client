@@ -21,8 +21,14 @@ export default function validate(values) {
   if (!values.get('password')) {
     errors.password = 'Required';
   }
-  if (!values.get('passwordConfirmation')) {
-    errors.passwordConfirmation = 'Required';
+  if (!values.get('password_confirmation')) {
+    errors.password_confirmation = 'Required';
+  }
+  if (!values.get('first_name')) {
+    errors.first_name = 'Required';
+  }
+  if (!values.get('last_name')) {
+    errors.last_name = 'Required';
   }
   return errors;
 }

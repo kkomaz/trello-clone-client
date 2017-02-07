@@ -3,7 +3,8 @@
 
 var REACT_APP = /^REACT_APP_/i;
 var NODE_ENV = JSON.stringify(process.env.NODE_ENV || 'development');
-var API_HOST = NODE_ENV === 'development' ? JSON.stringify('http://localhost:5000') : JSON.stringify('http://localhost:5000');
+var API_HOST = NODE_ENV === 'development' ? JSON.stringify('http://localhost:4000') : JSON.stringify('http://localhost:4000');
+console.log(API_HOST);
 
 module.exports = Object
   .keys(process.env)

@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router';
 import validate from 'common/Forms/utils/validations.jsx';
 import inputField from 'common/Forms/inputField';
 import mergeProps from 'common/Forms/utils/mergeProps.js';
-import signupUser from 'User/actions/signupUser.jsx';
+import signupUser from 'containers/Auth/actions/signupUser.jsx';
 
 class Signup extends Component {
   constructor(props) {
@@ -27,9 +27,11 @@ class Signup extends Component {
     return (
       <div className="signup">
         <form className="signup__form" onSubmit={handleSubmit(this.onSubmit)}>
-          <Field name="email" type="email" component={inputField} label="Email"/>
-          <Field name="password" type="password" component={inputField} label="Password"/>
-          <Field name="passwordConfirmation" type="password" component={inputField} label="Password Confirmation"/>
+          <Field name="first_name" type="name" component={inputField} label="First Name" />
+          <Field name="last_name" type="name" component={inputField} label="Last Name" />
+          <Field name="email" type="email" component={inputField} label="Email" />
+          <Field name="password" type="password" component={inputField} label="Password" />
+          <Field name="password_confirmation" type="password" component={inputField} label="Password Confirmation" />
           <div>
             <button type="submit" disabled={submitting} onClick={handleSubmit(this.onSubmit)}>Submit</button>
             <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>

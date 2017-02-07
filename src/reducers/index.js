@@ -3,14 +3,14 @@ import routing from 'reducers/routingReducer.js';
 import { reducer as formReducer } from 'redux-form/immutable';
 import flashMessages from './flashMessages';
 import list from './list';
-import loginReducer from 'User/reducers/LoginReducer.jsx';
+import authReducer from 'containers/Auth/reducers/authReducer.jsx';
 
 const rootReducer = combineReducers({
   routing,
   flashMessages,
   list,
   form: formReducer,
-  loginReducer,
+  authReducer,
 });
 
 export default rootReducer;

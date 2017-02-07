@@ -1,6 +1,6 @@
 import axios from 'axios';
 import _ from 'lodash';
-import { API_URL } from '../../env.config';
+import { API_URL } from '../../../env.config';
 
 export function isLoggedIn() {
   if (!!sessionStorage.jwt) {

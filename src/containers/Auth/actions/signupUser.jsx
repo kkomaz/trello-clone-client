@@ -1,19 +1,19 @@
 import axios from 'axios';
 import {
-  LOGIN_SUCCESS,
+  SIGNUP_USER,
 } from 'actions/ActionTypes.js';
 
 function onSuccess(response, dispatch) {
-  sessionStorage.setItem('jwt', response.data.auth_token);
-  dispatch({ type: LOGIN_SUCCESS });
+  dispatch({ type: SIGNUP_USER });
 }
 
 function onError(error, dispatch) {
   console.log('error');
 }
 
-export default function loginUser(data) {
-  const request = axios.post(`/auth/login`, {
+export default function signupUser(data) {
+  console.log(data);
+  const request = axios.post(`/api/v1/registrations`, {
     user: data,
   });
 

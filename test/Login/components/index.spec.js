@@ -1,4 +1,4 @@
-import LoginPageForm from 'User/index.jsx';
+import LoginPageForm from 'containers/Auth/Login.jsx';
 import { renderComponent }from '../../test_helper';
 
 describe('LoginPage', () => {
