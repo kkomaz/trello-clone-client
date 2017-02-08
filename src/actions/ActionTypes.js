@@ -7,6 +7,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOG_OUT = 'LOG_OUT';
 export const SIGNUP_USER = 'SIGNUP_USER';
 export const CURRENT_USER = 'CURRENT_USER';
+export const SOCKET_CONNECTED = 'SOCKET_CONNECTED';
 
 // Services
 export const FETCH_SERVICES = 'FETCH_SERVICES';

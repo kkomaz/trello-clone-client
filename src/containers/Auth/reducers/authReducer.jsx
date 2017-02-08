@@ -4,6 +4,7 @@ import {
   LOG_OUT,
   FETCH_SERVICES,
   CURRENT_USER,
+  SOCKET_CONNECTED,
 } from 'actions/ActionTypes.js';
 import { Map, List } from 'immutable';
 
@@ -17,6 +18,8 @@ export const defaultState = Map({
   currentUser: null,
   session: !!sessionStorage.jwt,
   services: List([]),
+  socket: null,
+  channel: null,
 });
 
 export default function authReducer(state = defaultState, action) {
@@ -28,6 +31,10 @@ export default function authReducer(state = defaultState, action) {
       return state.set('session', !!sessionStorage.jwt);
     case LOG_OUT:
       return state.merge(Map({ currentUser: null, session: !!sessionStorage.jwt }));
+    case SOCKET_CONNECTED: {
+      console.log(action);
+      return state.merge(Map({ socket: action.socket, channel: action.channel }));
+    }
     case FETCH_SERVICES:
       return state.set('services', action.payload.data);
     default:
